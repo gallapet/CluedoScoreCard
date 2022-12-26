@@ -3,6 +3,14 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+select {
+    appearance: none;
+    width: 50px;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
 table {
      width: 450px; 
 }
