@@ -1,0 +1,40 @@
+body {
+    background-color: #2e5493;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+td {
+    width: 50px;
+}
+
+.player-names {
+    width: 50px;
+    border: 0px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0%;
+}
+
+.mansion {
+    color: white;
+    padding-right: 20px;
+    align-content: left;
+}
+
+.question {
+    background-color: #b6c6e8;
+    color: #2e5493;
+    font-weight: bolder;
+}
+
+.cell {
+    background-color: white;
+    color: #2e5493;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.cluedo-card {
+    padding-right: 10px;
+    width: 100px;
+}
