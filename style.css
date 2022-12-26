@@ -3,14 +3,20 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-table td {
+/* table {
+     width: 100%; 
+} */
+
+table td {  
     table-layout: fixed;
-    width: 50px;
+    width: 100px fixed;
 }
 
 .player-names {
     width: 50px;
     border: 0px;
+    margin: auto;
+    display: block;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 0%;
@@ -36,6 +42,7 @@ table td {
 }
 
 .cluedo-card {
-    padding-right: 10px;
-    width: 100px;
+    padding-right: 10px;        
+    width: 100px fixed;
+    white-space: nowrap;
 }
