@@ -8,7 +8,14 @@ select {
     width: 50px;
     border: none;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
     font-weight: bold;
+    background-color: white;
+}
+
+select option {
+    background-color: white;
 }
 
 table {
