@@ -2,22 +2,29 @@ window.addEventListener("load", () => {
   var cells = document.querySelectorAll(".player-cell, .result-cell");
   cells.forEach((cell) => {
     cell.innerHTML +=
-      '<select name="result" class="result-select"><option value=""></option><option value="tick">✅</option><option value="cross">❌</option><option value="none">O</option></select>';
+      '<select class="result"><option value=""></option><option value="tick">✅</option><option value="cross">❌</option><option value="none">O</option></select>';
   });
 
   var rows = document.querySelectorAll("tr.cell");
-  console.log(rows);
   rows.forEach((row) => {
+    var playerCells = row.querySelectorAll("td.player-cell");
+    var resultCellOption = row
+      .querySelector("td.result-cell")
+      .querySelector("select.result");
     row.addEventListener("change", () => {
-      var playerCells = row.querySelectorAll("td.player-cell");
-      var resultCell = row
-        .querySelector("td.result-cell")
-        .querySelector("select.result-select");
+      console.log(playerCells);
       playerCells.forEach((cell) => {
-        if (cell.querySelector("select.result-select").value === "cross") {
-          resultCell.value = "cross";
+        if (cell.querySelector("select.result").value === "cross") {
+          resultCellOption.value = "cross";
         }
       });
+      if (resultCellOption.value === "cross") {
+        playerCells.forEach((cell) => {
+          if (cell.querySelector("select.result").value === "") {
+            cell.querySelector("select.result").value = "none";
+          }
+        });
+      }
     });
   });
 });
