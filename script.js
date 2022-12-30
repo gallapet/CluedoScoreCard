@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 
   playerCellsAll.forEach((cell) => {
     cell.innerHTML +=
-      '<select class="result"><option value=""><option value="cross">❌</option><option value="zero">O</option></option><option value="tick">✅</option></select>';
+      '<select class="result"><option value=""><option value="cross">❌</option><option value="zero">O</option></option></select>';
   });
   resultCellsAll.forEach((cell) => {
     cell.innerHTML +=
@@ -24,13 +24,10 @@ window.addEventListener("load", () => {
           resultCellOption.value = "cross";
           setRestOfRowAsZero(playerCellsRow);
         }
-        console.log(cell.children[0].value);
       });
-      console.log(cellsAreAllZero(playerCellsRow));
-      console.log(cellsAreAllEmpty(playerCellsRow));
-      // if (cellsAreAllZero(playerCellsRow)) {
-      //   resultCellOption.value = "tick";
-      // }
+      if (cellsAreAllZero(playerCellsRow)) {
+        resultCellOption.value = "tick";
+      }
     });
 
     resultCellRow.addEventListener("change", () => {
@@ -44,7 +41,7 @@ window.addEventListener("load", () => {
         !cellsAreAllEmpty(playerCellsRow)
       ) {
         playerCellsRow.forEach((cell) => {
-          cell.querySelector("select.result").value = "zero";
+          cell.children[0].value = "zero";
         });
       }
     });
@@ -52,29 +49,30 @@ window.addEventListener("load", () => {
 });
 
 function cellsAreAllEmpty(nodeList) {
-  console.log(nodeList);
+  var result = true
   nodeList.forEach((el) => {
     if (el.children[0].value !== "") {
-      return false;
+      result = false;
     }
   });
-  return true;
+  return result;
 }
 
 function cellsAreAllZero(nodeList) {
+  var result = true
   nodeList.forEach((el) => {
     if (
       el.children[0].value !== "zero") {
-      return false;
+      result = false;
     }
   });
-  return true;
+  return result;
 }
 
 function setRestOfRowAsZero(nodeList) {
   nodeList.forEach((el) => {
-    if (el.querySelector("select.result").value !== "cross") {
-      el.querySelector("select.result").value = "zero";
+    if (el.children[0].value !== "cross") {
+      el.children[0].value = "zero";
     }
   });
 }
