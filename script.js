@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
-  var playerCellsAll = document.querySelectorAll("td.player-cell");
-  var resultCellsAll = document.querySelectorAll("td.result-cell");
+  let playerCellsAll = document.querySelectorAll("td.player-cell");
+  let resultCellsAll = document.querySelectorAll("td.result-cell");
 
   playerCellsAll.forEach((cell) => {
     cell.innerHTML +=
@@ -11,12 +11,12 @@ window.addEventListener("load", () => {
       '<select class="result"><option value=""><option value="cross">❌</option><option value="zero">O</option></option><option value="tick">✅</option><option value="clear">Clear</option></select>';
   });
 
-  var rows = document.querySelectorAll("tr.cell");
+  let rows = document.querySelectorAll("tr.cell");
 
   rows.forEach((row) => {
-    var playerCellsRow = row.querySelectorAll("td.player-cell");
-    var resultCellRow = row.querySelector("td.result-cell");
-    var resultCellOption = resultCellRow.querySelector("select.result");
+    let playerCellsRow = row.querySelectorAll("td.player-cell");
+    let resultCellRow = row.querySelector("td.result-cell");
+    let resultCellOption = resultCellRow.querySelector("select.result");
 
     row.addEventListener("change", () => {
       playerCellsRow.forEach((cell) => {
@@ -49,21 +49,22 @@ window.addEventListener("load", () => {
 });
 
 function cellsAreAllEmpty(nodeList) {
-  var result = true
+  let result = true
   nodeList.forEach((el) => {
     if (el.children[0].value !== "") {
       result = false;
+      return;
     }
   });
   return result;
 }
 
 function cellsAreAllZero(nodeList) {
-  var result = true
+  let result = true
   nodeList.forEach((el) => {
-    if (
-      el.children[0].value !== "zero") {
+    if (el.children[0].value !== "zero") {
       result = false;
+      return;
     }
   });
   return result;
